@@ -1,4 +1,4 @@
-This is a tool to download and create a labeled audio dataset from YouTube videos.
+This is a tool to download and create labeled audio datasets from YouTube videos.
 
 You need to execute two steps:
 
