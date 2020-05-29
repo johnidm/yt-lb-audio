@@ -95,3 +95,5 @@ for audio_file in files:
 
         with open(part_sub_filename, 'w') as f:
             f.write(text_cleaner(caption.text))
+
+print("Done! The labeled audio datasets are avaliable in 'corpus' folder.")
