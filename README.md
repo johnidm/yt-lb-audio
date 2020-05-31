@@ -4,7 +4,7 @@ You need to execute two steps:
 
 ### First step: download audio files and subtitles and convert audio format
 
- - Add the YouTube video URLs to the `download.txt` file. The selected videos must have subtitles for the desired language.
+ - Add the YouTube video URLs, one per line, to the `download.txt` file. The selected videos must have subtitles for the desired language.
 
  - Run the script `./download.sh <subtitle lang>`, where `<subtitle lang>` is the two-letter language code, e.g. `pt`, `es`, `en`, `ru`, etc. 
 
@@ -44,5 +44,3 @@ corpus/
         ...
     ... 
 ```
-
-If you would like to learn more about labeled audio datasets, please read []().
