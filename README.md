@@ -44,3 +44,17 @@ corpus/
         ...
     ... 
 ```
+
+### Testing the tool :rocket:
+
+If you would like to test the scripts, just running the commands below.
+
+```
+./download.sh pt
+```
+
+```
+python main.py pt
+```
+
+The `corpus` folder was created with the labeled audio.
