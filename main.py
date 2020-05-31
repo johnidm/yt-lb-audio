@@ -56,14 +56,21 @@ def text_cleaner(text):
 
 
 directory = 'corpus'
-
 lang = sys.argv[1]
 
+
 if os.path.exists(directory):
-    shutil.rmtree(directory)
-
-
-os.makedirs(directory)
+    answer = None
+    while answer not in ("y", "n", "Y", "N"):
+        answer = input(f"Do you wish to remove {directory} folder [y/n] ? ")
+        if answer in ("y", "Y"):
+            shutil.rmtree(directory)
+        elif answer in ("N", "n"):
+            break
+        else:
+            print("Please answer [y] or [n].")
+else:
+    os.makedirs(directory)
 
 
 files = glob.glob(f'downloads/*.{lang}.wav')
@@ -96,4 +103,4 @@ for audio_file in files:
         with open(part_sub_filename, 'w') as f:
             f.write(text_cleaner(caption.text))
 
-print("Done! The labeled audio datasets are avaliable in 'corpus' folder.")
+print(f"Done! The labeled audio datasets are avaliable in {directory} folder.")
