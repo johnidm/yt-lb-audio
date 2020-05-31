@@ -39,8 +39,8 @@ lang=$1
 
 if [ -d "$download_dir" ]; then
     while true; do
-        read -p "Do you wish to remove ${download_dir} folder [y/n] ? " yn
-        case $yn in
+        read -p "Do you wish to remove ${download_dir} folder [y/n] ? " answer
+        case $answer in
         [Yy]*)
             rm -rf $download_dir
             break
@@ -67,5 +67,5 @@ for audio_file in $download_dir/*.mp3; do
     subtitle_file=${basename}.$lang.vtt
     wav_file=${basename}.$lang.wav
 
-    ffmpeg -i "$audio_file" -acodec pcm_s16le -ac 1 -ar 16000 "$wav_file"
+    ffmpeg -y -i "$audio_file" -acodec pcm_s16le -ac 1 -ar 16000 "$wav_file"
 done
