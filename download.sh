@@ -18,6 +18,22 @@ if [ -z $1 ]; then
     exit 1
 fi
 
+exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+if ! exists youtube-dl; then
+    echo "'youtube-dl' is required!"
+    echo "Please, follow the instructions to install http://ytdl-org.github.io/youtube-dl/download.html"
+    exit 1
+fi
+
+if ! exists ffmpeg; then
+    echo "'ffmpeg' is required!"
+    echo "Please, follow the instructions to install https://ffmpeg.org/download.html"
+    exit 1
+fi
+
 download_dir="./downloads"
 lang=$1
 
