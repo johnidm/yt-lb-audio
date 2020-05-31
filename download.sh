@@ -1,17 +1,16 @@
 #!/bin/bash
 #
-# Downloads audio + subtitles in the specified language from YouTube 
-# Converts the audio to 16 KHz mono WAV 
-# 
+# Downloads audio + subtitles in the specified language from YouTube
+# Converts the audio to 16 KHz mono WAV
+#
 # How to use:
 #       Add the YouTube video URLs to download.txt.
 #       Run the script './download.sh <subtitle lang>' (check README for list of languages).
 #       All files will be written to the 'downloads directory.
 #
 # Author: Johni Douglas Marangon - https://github.com/johnidm
-# 
 
-if [ -z $1 ] ; then
+if [ -z $1 ]; then
     echo ""
     echo "Subtitle language is required!"
     echo "Usage: './download.sh <subtitle lang>'"
@@ -20,13 +19,25 @@ if [ -z $1 ] ; then
 fi
 
 download_dir="./downloads"
-
 lang=$1
 
-rm -rf $download_dir
-mkdir -p $download_dir
+if [ -d "$download_dir" ]; then
+    while true; do
+        read -p "Do you wish to remove ${download_dir} folder [y/n] ? " yn
+        case $yn in
+        [Yy]*)
+            rm -rf $download_dir
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer [y] or [n]." ;;
+        esac
+    done
+else
+    mkdir -p $download_dir
+fi
 
-for url in $(<download.txt); do    
+for url in $(<download.txt); do
     youtube-dl $url --write-sub --sub-lang $lang --sub-format vtt --extract-audio --audio-format mp3 -f bestaudio -o "${download_dir}/%(title)s.%(ext)s"
 done
 
