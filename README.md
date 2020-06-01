@@ -6,7 +6,10 @@ You need to execute two steps:
 
  - Add the YouTube video URLs, one per line, to the `download.txt` file. The selected videos must have subtitles for the desired language.
 
- - Run the script `./download.sh <subtitle lang>`, where `<subtitle lang>` is the two-letter language code, e.g. `pt`, `es`, `en`, `ru`, etc. 
+ - Run the script `./download.sh <subtitle lang>`
+    * Subtitle languages are typically two-letter codes e.g. `pt`, `es`, `en`, `ru` etc., but some videos might have subtitles with more specific language tags, e.g. `en-US`, `pt-BR`.
+    * To list the available subtitles for a given video URL, you may run
+      `youtube-dl --list-subs <video URL>`
 
  - The files are written to the `downloads` folder. 
  
@@ -47,7 +50,7 @@ corpus/
 
 ### Testing the tool :rocket:
 
-If you would like to test the scripts, just running the commands below.
+If you would like to quickly test the scripts, just run the commands below:
 
 ```
 ./download.sh pt
@@ -57,4 +60,4 @@ If you would like to test the scripts, just running the commands below.
 python main.py pt
 ```
 
-The `corpus` folder was created with the labeled audio.
+If everything works, a `corpus` folder should have been created and it should contain the labeled audio data.
