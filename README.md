@@ -12,6 +12,7 @@ You need to execute two steps:
       `youtube-dl --list-subs <video URL>`
 
  - The files are written to the `downloads` folder. 
+    * If the `downloads` folder already exists, the script will ask if it should be recreated. Answering `y` means existing data will be erased.
  
  For each video, three files will be created with the following extensions:
     - `vtt`: subtitles

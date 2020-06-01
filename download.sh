@@ -39,7 +39,7 @@ lang=$1
 
 if [ -d "$download_dir" ]; then
     while true; do
-        read -p "Do you wish to remove ${download_dir} folder [y/n] ? " answer
+        read -p "Do you wish to remove existing ${download_dir} folder before proceeding [y/n] ? " answer
         case $answer in
         [Yy]*)
             rm -rf $download_dir
