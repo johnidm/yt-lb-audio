@@ -29,6 +29,7 @@ For each video, three files will be created with the following extensions:
 - Run the script `python main.py <subtitle lang>`, where `<subtitle lang>` should be the same as in the first step.
 
 - The labeled audio dataset is written to the `corpus` folder.
+    *If the `corpus` folder already exists, the python script will ask if it should be recreated. Answering `y` means existing data will be erased.
 
 The `corpus` folder will have the following structure:
 
